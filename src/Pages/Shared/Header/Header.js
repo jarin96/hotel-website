@@ -1,8 +1,11 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
+import auth from '../../../firebase.init';
 import './Header.css';
 
 const Header = () => {
+    const [user] = useAuthState(auth);
     return (
         <div className="row">
             <div className='col-sm-12 col-md-6 col-lg-12'>
@@ -12,6 +15,10 @@ const Header = () => {
                         <Link to="/services">Services</Link>
                         <Link to="/Inventory">Inventory</Link>
                         <Link to="/about">About</Link>
+                        {user ?
+                            <button>Sign Out</button>
+                            :
+                            <Link to='/login'>Login</Link>}
                     </div>
                 </nav>
             </div>
