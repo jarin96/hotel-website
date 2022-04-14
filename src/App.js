@@ -7,6 +7,7 @@ import Login from './Pages/Login/Login';
 import RequireAuth from './Pages/RequireAuth/RequireAuth';
 import Footer from './Pages/Shared/Footer/Footer';
 import Header from './Pages/Shared/Header/Header';
+import Shipment from './Pages/Shipment/Shipment';
 import SignUp from './Pages/SignUp/SignUp';
 
 function App() {
@@ -19,6 +20,11 @@ function App() {
         <Route path='/services' element={
           <RequireAuth>
             <Services></Services>
+          </RequireAuth>
+        }></Route>
+        <Route path='/shipment' element={
+          <RequireAuth>
+            <Shipment></Shipment>
           </RequireAuth>
         }></Route>
         <Route path='/login' element={<Login></Login>}></Route>
